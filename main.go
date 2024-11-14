@@ -4,7 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"log"
-	"os"
+	// "os"
 
 	"github.com/go-sql-driver/mysql"
 )
@@ -13,11 +13,12 @@ var db *sql.DB
 
 func main() {
 	cfg := mysql.Config{
-		User:   os.Getenv("DBUSER"),
-		Passwd: os.Getenv("DBPASS"),
+		User:   "root",
+		Passwd: "",
 		Net:    "tcp",
 		Addr:   "localhost:3306",
 		DBName: "recordings",
+		AllowNativePasswords: true,
 	}
 
 	var err error
